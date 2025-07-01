@@ -12,8 +12,11 @@ const DarkModeContext = createContext<DarkModeContextType>({
 
 export function DarkModeProvider({ children }: { children: React.ReactNode }) {
   const [dark, setDark] = useState(() => {
-    const stored = localStorage.getItem("darkmode");
-    return stored === "true";
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("darkmode");
+      return stored === "true";
+    }
+    return false;
   });
 
   useEffect(() => {

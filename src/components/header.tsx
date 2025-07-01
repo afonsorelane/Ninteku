@@ -98,9 +98,16 @@ export function Header() {
             <button
               onClick={toggle}
               aria-label="Alternar modo escuro"
-              className="p-2 rounded hover:bg-blue-700 text-white transition"
+              className={`p-2 rounded transition ${
+                dark
+                  ? "bg-blue-700 text-white hover:bg-blue-800"
+                  : "bg-gray-200 text-blue-700 hover:bg-blue-100"
+              }`}
             >
-              {dark ? <Sun size={24} /> : <Moon size={24} />}
+              {dark
+                ? <Sun size={24} color="var(--color-primary-foreground)" />
+                : <Moon size={24} color="var(--color-primary)" />
+              }
             </button>
           </div>
         </div>
