@@ -1,4 +1,3 @@
-```markdown
 # 🌍 Ninteku — Site Institucional
 
 **Tecnologia com alma africana. Inovação com propósito.**
@@ -35,7 +34,6 @@ Este site é a **porta de entrada institucional da Ninteku**, servindo como vitr
 ## 🧩 Estrutura de Pastas
 
 ```
-
 ninteku-website/
 │
 ├── public/                 # Ícones, imagens internas, fontes
@@ -48,8 +46,7 @@ ninteku-website/
 ├── index.html              # Arquivo base (se Vite)
 ├── package.json            # Dependências e scripts
 └── README.md               # Este documento
-
-````
+```
 
 ---
 
@@ -74,6 +71,7 @@ ninteku-website/
 - Formulário de contato
 - Design responsivo (mobile-first)
 - Acessibilidade básica (WCAG AA)
+- **Modo escuro (Dark Mode) disponível**
 
 ---
 
@@ -83,7 +81,7 @@ ninteku-website/
 
 ```bash
 git clone https://github.com/seu-usuario/ninteku-website.git
-````
+```
 
 2. Instale as dependências:
 
@@ -102,7 +100,7 @@ npm run dev
 ## 🚧 Próximas Implementações
 
 * [ ] Integração com CMS para blog (ex: Sanity, Strapi)
-* [ ] Dark Mode (modo escuro)
+* [x] Dark Mode (modo escuro)
 * [ ] Otimização SEO e metadados dinâmicos
 * [ ] Formulário com envio real (via Formspree ou EmailJS)
 * [ ] Dashboard interno para gestão de conteúdo
@@ -113,7 +111,7 @@ npm run dev
 
 Se deseja colaborar com o projeto da Ninteku, envie um pull request ou entre em contacto:
 
-📧 Email: [contato@ninteku.co.mz](mailto:contato@ninteku.co.mz)
+📧 Email: [contato@ninteku.co.mz](mailto:contato@ninteku.co.mz)  
 🌐 Website oficial: [www.ninteku.co.mz](https://www.ninteku.co.mz) *(em breve)*
 
 ---
@@ -131,5 +129,3 @@ Este projeto está licenciado sob a **MIT License** – sinta-se à vontade para
 ---
 
 > “Tecnologia com raízes africanas para um futuro conectado, inclusivo e sustentável.”
-
-```
