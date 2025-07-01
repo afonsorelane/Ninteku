@@ -80,7 +80,7 @@ ninteku-website/
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/ninteku-website.git
+git clone https://github.com/afonsorelane/NINTEKU.git
 ```
 
 2. Instale as dependências:
@@ -100,7 +100,6 @@ npm run dev
 ## 🚧 Próximas Implementações
 
 * [ ] Integração com CMS para blog (ex: Sanity, Strapi)
-* [x] Dark Mode (modo escuro)
 * [ ] Otimização SEO e metadados dinâmicos
 * [ ] Formulário com envio real (via Formspree ou EmailJS)
 * [ ] Dashboard interno para gestão de conteúdo
