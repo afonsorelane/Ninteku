@@ -28,7 +28,7 @@ export const MagicCursor = () => {
     <>
       <div
         ref={dotRef}
-        className="fixed z-[9999] w-4 h-4 rounded-full bg-blue-700 pointer-events-none transition-transform duration-75 mix-blend-difference"
+        className="fixed z-[9999] w-4 h-4 rounded-full bg-[var(--color-primary)] pointer-events-none transition-transform duration-75 mix-blend-difference"
       />
       {[...Array(6)].map((_, i) => (
         <div
@@ -36,10 +36,9 @@ export const MagicCursor = () => {
           ref={(el) => {
             trailRef.current[i] = el!;
           }}
-          className="fixed z-[9998] w-3 h-3 rounded-full bg-blue-500 opacity-30 blur-sm pointer-events-none transition-transform duration-100"
+          className="fixed z-[9998] w-3 h-3 rounded-full bg-[var(--color-primary)] opacity-30 blur-sm pointer-events-none transition-transform duration-100"
         />
       ))}
-
     </>
   );
 };

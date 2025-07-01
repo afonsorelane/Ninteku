@@ -42,7 +42,32 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  /* === Ninteku Design Tokens === */
+  /* Cores principais */
+  --color-primary: #1B3B6F;           /* Azul Profundo */
+  --color-highlight: #D9744A;         /* Terracota */
+  --color-background: #F0E5D8;        /* Bege Claro */
+  --color-success: #567D46;           /* Verde Musgo */
+  --color-neutral: #7A7A7A;           /* Cinza Médio */
+  --color-text-main: #1A1A1A;         /* Preto Suave */
+  --color-white: #FFFFFF;
+
+  /* Tipografia */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Espaçamentos */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+
+  /* Bordas e radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -117,4 +142,95 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Exemplo de uso para body e headings */
+body {
+  font-family: var(--font-body);
+  background: var(--color-background);
+  color: var(--color-text-main);
+}
+
+h1, h2, h3, h4, h5, h6, button, .btn {
+  font-family: var(--font-heading);
+}
+
+/* Botão primário */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: box-shadow 0.2s, transform 0.1s, background 0.2s;
+}
+.btn-primary:hover {
+  box-shadow: 0 2px 8px #1B3B6F22;
+  filter: brightness(1.08);
+}
+.btn-primary:active {
+  transform: scale(0.95);
+  background: #162e54;
+}
+.btn-primary:focus {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+/* Card */
+.card {
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px #0001;
+  padding: var(--space-lg);
+}
+
+/* Badge exemplos */
+/* 
+  .badge-success   → Ativo (Verde Musgo)
+  .badge-progress  → Em progresso (Terracota)
+  .badge-new       → Novo (Azul Profundo)
+  Todas: texto branco, radius 8px, padding horizontal 8px, fonte 14px/600
+*/
+.badge-success {
+  background: var(--color-success);      /* Verde Musgo */
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-sm);
+  font-size: 0.875rem;                   /* 14px */
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  display: inline-block;
+}
+.badge-progress {
+  background: var(--color-highlight);    /* Terracota */
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  display: inline-block;
+}
+.badge-new {
+  background: var(--color-primary);      /* Azul Profundo */
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  display: inline-block;
+}
+
+/* Acessibilidade extra: garantir contraste e foco visível */
+.badge-success:focus,
+.badge-progress:focus,
+.badge-new:focus {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 2px;
 }
