@@ -34,7 +34,7 @@ export function Header() {
             <a
               key={link.label}
               href={link.href}
-              className="transition hover:underline text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-highlight)]"
+              className="transition hover:underline text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)] focus:outline-none focus:ring-2]"
             >
               {link.label}
             </a>

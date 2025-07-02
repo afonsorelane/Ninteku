@@ -175,7 +175,7 @@ h1, h2, h3, h4, h5, h6, button, .btn {
   background: #162e54;
 }
 .btn-primary:focus {
-  outline: 2px solid var(--color-highlight);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -232,6 +232,6 @@ h1, h2, h3, h4, h5, h6, button, .btn {
 .badge-success:focus,
 .badge-progress:focus,
 .badge-new:focus {
-  outline: 2px solid var(--color-highlight);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }

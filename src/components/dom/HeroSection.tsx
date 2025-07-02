@@ -7,7 +7,7 @@ export default function HeroSection() {
       <p className="mb-8 text-lg text-[var(--color-text-main)]">
         Inovação acessível, calor humano e impacto social.
       </p>
-      <a href="#our-services" className="btn-primary">Ver Nossos Serviços</a>
+      <a href="servicos" className="btn-primary">Ver Nossos Serviços</a>
     </section>
   );
 }
