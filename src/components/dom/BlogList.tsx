@@ -1,3 +1,6 @@
+import { Card, CardContent } from "../ui/card"
+import { motion } from "framer-motion"
+
 const posts = [
   {
     titulo: "Como criar um site acessível",
@@ -23,20 +26,30 @@ type Props = {
   categoria: string;
 };
 
-export default function BlogList({ categoria }: Props) {
+export const BlogList = ({ categoria }: Props) => {
+  const filtered = posts.filter((p) => categoria === "" || p.categoria === categoria);
+
   return (
     <div className="space-y-6">
-      {posts
-        .filter((p) => categoria === "" || p.categoria === categoria)
-        .map((p) => (
-          <div key={p.titulo} className="bg-white rounded shadow p-4">
-            <h3 className="font-bold text-lg mb-1">{p.titulo}</h3>
-            <span className="text-xs text-gray-500">{p.data} • {p.categoria}</span>
-            <p className="mt-2 text-sm">{p.resumo}</p>
-          </div>
-        ))}
-      {posts.filter((p) => categoria === "" || p.categoria === categoria).length === 0 && (
-        <div className="text-gray-500">Nenhum post encontrado para esta categoria.</div>
+      {filtered.map((p, i) => (
+        <motion.div
+          key={p.titulo}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: i * 0.08, type: "spring" }}
+        >
+          <Card className="w-full max-w-2xl mx-auto bg-card shadow-md">
+            <CardContent className="p-4">
+              <h3 className="font-bold text-lg mb-1 text-foreground">{p.titulo}</h3>
+              <span className="text-xs text-muted-foreground">{p.data} • {p.categoria}</span>
+              <p className="mt-2 text-sm text-foreground">{p.resumo}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+      {filtered.length === 0 && (
+        <div className="text-muted-foreground text-center">Nenhum post encontrado para esta categoria.</div>
       )}
     </div>
   );

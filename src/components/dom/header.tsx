@@ -1,9 +1,8 @@
-// components/Header.jsx
-//import React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useDarkMode } from "../../context/darkmode";
 
-export default function Header() {
+
+export const Header = () => {
   const { dark, toggle } = useDarkMode();
 
   const navLinks = [
@@ -15,7 +14,6 @@ export default function Header() {
     { label: "Junte-se", href: "/junte-se" },
     { label: "Contato", href: "/contato" },
   ];
-
   return (
     <header className="bg-white dark:bg-gray-900 shadow sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">

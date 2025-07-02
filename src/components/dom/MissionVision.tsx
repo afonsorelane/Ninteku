@@ -1,20 +1,42 @@
-export default function MissionVision() {
+import { motion } from "framer-motion";
+
+export const MissionVision = () => {
   return (
-    <section id="about" className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
-        <div>
-          <h3 className="font-bold text-xl mb-2 text-[var(--color-primary)]">Missão</h3>
-          <p>Levar tecnologia acessível e relevante para todos.</p>
-        </div>
-        <div>
-          <h3 className="font-bold text-xl mb-2 text-[var(--color-primary)]">Visão</h3>
-          <p>Ser referência em inovação com propósito social em África.</p>
-        </div>
-        <div>
-          <h3 className="font-bold text-xl mb-2 text-[var(--color-primary)]">Propósito</h3>
-          <p>Transformar vidas e comunidades através do digital.</p>
-        </div>
+    <motion.section
+      id="about"
+      className="py-16 bg-white"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.7, type: "spring" }}
+    >
+      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        {[
+          {
+            title: "Missão",
+            desc: "Levar tecnologia acessível e relevante para todos.",
+          },
+          {
+            title: "Visão",
+            desc: "Ser referência em inovação com propósito social em África.",
+          },
+          {
+            title: "Propósito",
+            desc: "Transformar vidas e comunidades através do digital.",
+          },
+        ].map((item, i) => (
+          <motion.div
+            key={item.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: i * 0.15, type: "spring" }}
+          >
+            <h3 className="font-bold text-xl mb-2 text-[var(--color-primary)]">{item.title}</h3>
+            <p>{item.desc}</p>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </motion.section>
   );
-}
+};

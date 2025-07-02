@@ -1,11 +1,11 @@
-import AppRoutes from "./Routes";
+import { AppRoutes } from "./Routes";
 import { MagicCursor } from "./components/magicmouse";
 
 export const App = () => {
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-br from-white via-slate-100 to-white dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] transition-colors duration-500 overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-white via-slate-100 to-white dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] transition-colors duration-500 overflow-x-hidden">
       <MagicCursor />
       <AppRoutes />
-      </div>
-    );
-  };
+    </div>
+  );
+};

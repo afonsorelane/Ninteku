@@ -1,14 +1,14 @@
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-import ServicePackages from "../components/dom/ServicePackages";
-import ServiceCard from "../components/dom/ServiceCard";
+import { ServicePackages } from "../components/dom/ServicePackages";
+import { ServiceCard } from "../components/dom/ServiceCard";
 
-export default function Servicos() {
+export const Servicos = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="max-w-5xl mx-auto py-16 px-4">
-        <h1 className="text-3xl font-bold mb-6 text-[var(--color-primary)]">Nossos Serviços</h1>
+      <main className="flex-1 pt-10 p-10">
+        <h1 className="text-3xl font-bold mt-20 text-[var(--color-primary)]">Nossos Serviços</h1>
         <ServicePackages />
         <ServiceCard />
       </main>
