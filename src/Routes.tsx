@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/home";
-import Sobre from "./pages/sobre";
-import Servicos from "./pages/our-servises";
-import Portfolio from "./pages/portfolio";
-import Blog from "./pages/blog";
-import JunteSe from "./pages/junte-se";
-import Contato from "./pages/contato";
+import { Home } from "./pages/home";
+import { Sobre } from "./pages/sobre";
+import { Servicos } from "./pages/our-servises";
+import { Portfolio } from "./pages/portfolio";
+import { Blog } from "./pages/blog";
+import { JunteSe } from "./pages/junte-se";
+import { Contato } from "./pages/contato";
 
-export default function AppRoutes() {
+export const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>

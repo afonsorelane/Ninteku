@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useDarkMode } from "../context/darkmode";
 
-export function Header() {
+export const Header = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { dark, toggle } = useDarkMode();
 
@@ -14,7 +14,7 @@ export function Header() {
     { label: "Portfólio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
     { label: "Junte-se", href: "/junte-se" },
-    { label: "Contato", href: "/contato" },
+    { label: "Contacto", href: "/contato" },
   ];
 
   return (
@@ -23,8 +23,9 @@ export function Header() {
         <div className="flex items-center">
           <a
             href="/"
-            className="text-xl md:text-2xl font-bold tracking-tight text-blue-700 dark:text-indigo-900 transition hover:opacity-80"
+            className="text-xl flex md:text-2xl font-bold tracking-tight text-blue-700 dark:text-indigo-900 transition hover:opacity-80"
           >
+            <img src="../public/ninteku.png" alt="Ninteko" width={40} height={40} className="rounded-2xl gap-4 mr-2" />
             Ninteku
           </a>
         </div>
@@ -39,7 +40,7 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <a href="/contato" className="btn-primary ml-4">
+          <a href="/contato" className="btn-primary ml-4 px-4 py-1">
             Solicitar Proposta
           </a>
         </nav>
