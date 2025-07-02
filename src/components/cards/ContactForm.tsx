@@ -36,7 +36,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-5 bg-[var(--color-card)] p-6 rounded-xl shadow-md"
+      className="space-y-5 bg-[var(--color-card)] p-6 rounded-3xl shadow-md"
     >
       <div>
         <label htmlFor="nome" className="block font-semibold mb-1 text-sm">
@@ -47,7 +47,7 @@ export default function ContactForm() {
           name="nome"
           type="text"
           required
-          className="input-field w-full"
+          className="input-field w-full p-2"
           value={form.nome}
           onChange={handleChange}
           placeholder="Seu nome completo"
@@ -63,7 +63,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="input-field w-full"
+          className="input-field w-full p-2"
           value={form.email}
           onChange={handleChange}
           placeholder="exemplo@email.com"
@@ -78,7 +78,7 @@ export default function ContactForm() {
           id="mensagem"
           name="mensagem"
           required
-          className="input-field w-full"
+          className="input-field w-full p-2"
           rows={4}
           value={form.mensagem}
           onChange={handleChange}

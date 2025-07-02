@@ -12,7 +12,7 @@ export default function Contato() {
             Estamos prontos para ouvir suas ideias, projetos ou esclarecer dúvidas. Entre em contacto connosco por email, WhatsApp ou preencha o formulário abaixo.
           </p>
 
-          <div className="bg-[var(--color-card)] border border-[var(--color-border)] rounded-lg p-6 shadow-sm space-y-3 text-sm">
+          <div className="bg-[var(--color-card)] border border-[var(--color-border)] rounded-2xl p-6 shadow-sm space-y-3 text-sm">
             <div>
               <span className="font-semibold">📧 Email:</span>{" "}
               <a

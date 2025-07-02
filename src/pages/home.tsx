@@ -1,4 +1,3 @@
-
 const areas = [
   { title: "Cidades Inteligentes", icon: "🏙️" },
   { title: "Empregabilidade Jovem", icon: "👩🏾‍💻" },
@@ -12,9 +11,23 @@ export default function Home() {
     <>
      
       <main className="bg-[var(--color-background)] text-[var(--color-foreground)] transition-colors duration-300">
+        
         {/* Hero Section */}
-        <section id="home" className="py-20 px-4 text-center">
-          <div className="max-w-4xl mx-auto">
+        <section
+          id="home"
+          className="relative py-20 px-4 text-center min-h-[60vh] flex items-center justify-center overflow-hidden"
+        >
+          {/* Imagem de fundo com blur e overlay escuro */}
+          <div
+            className="absolute inset-0 z-0 w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/heroH.jpg')",
+              filter: "blur(2.5px) brightness(0.65)",
+            }}
+            aria-hidden="true"
+          />
+          {/* Conteúdo do Hero */}
+          <div className="relative z-10 max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-primary)] leading-tight">
               Tecnologia com raízes africanas, para empresas e comunidades com propósito.
             </h1>
@@ -44,7 +57,7 @@ export default function Home() {
         </section>
 
         {/* Áreas de Atuação */}
-        <section className="py-16 px-4 bg-[var(--color-background)]">
+        <section className="py-16 px-4 bg-background">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold text-center mb-10 text-[var(--color-primary)]">
               Áreas de Atuação
@@ -64,22 +77,27 @@ export default function Home() {
         </section>
 
         {/* Depoimentos */}
-        <section className="py-16 px-4 bg-transparent">
-          <div className="max-w-3xl mx-auto text-center bg-white/10 dark:bg-[var(--color-primary)]/10 backdrop-blur-md rounded-xl p-8 transition-colors duration-300">
-            <h2 className="text-2xl font-bold mb-8 text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)]">
-              Depoimentos
-            </h2>
-            <blockquote className="italic text-[var(--color-text-main)] dark:text-[var(--color-primary-foreground)]">
-              "A Ninteku transformou nosso negócio com soluções digitais inovadoras!"
-            </blockquote>
-            <span className="block mt-4 font-semibold text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)]">
-              — Cliente Satisfeito
-            </span>
+        <section className="py-16 px-4 bg-transparent flex items-center justify-center min-h-[40vh]">
+          <div className="relative w-full max-w-3xl flex items-center justify-center">
+            {/* Fundo translúcido com blur cobrindo toda a seção */}
+            <div className="absolute inset-0 bg-white/70 dark:bg-[var(--color-primary-foreground)]/10 backdrop-blur-md rounded-[15px] border  dark:border-[var(--color-primary-foreground)] z-0" />
+            {/* Conteúdo centralizado acima do fundo */}
+            <div className="relative z-10 text-center p-8">
+              <h2 className="text-2xl font-bold mb-8 text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)]">
+                Depoimentos
+              </h2>
+              <blockquote className="italic text-[var(--color-text-main)] dark:text-[var(--color-primary-foreground)]">
+                "A Ninteku transformou nosso negócio com soluções digitais inovadoras!"
+              </blockquote>
+              <span className="block mt-4 font-semibold text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)]">
+                — Cliente Satisfeito
+              </span>
+            </div>
           </div>
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 px-4 bg-[var(--color-primary)] text-white text-center">
+        <section className="py-16 px-4  text-primary text-center">
           <h2 className="text-2xl font-bold mb-6">
             Vamos criar juntos uma solução digital com impacto real.
           </h2>

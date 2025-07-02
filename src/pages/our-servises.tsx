@@ -63,11 +63,11 @@ export default function Servicos() {
           <h2 className="text-2xl font-bold mb-6 text-[var(--color-primary)] text-center">
             Pacotes para Empresas
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 shadow-3xms">
             {packages.map((pkg) => (
               <div
                 key={pkg.nome}
-                className="card bg-white dark:bg-[var(--color-background)] text-center p-6 rounded-lg shadow-md border border-[var(--color-border)]"
+                className="card bg-white dark:bg-[var(--color-background)] text-center p-6 rounded-2xl shadow-2xl border border-[var(--color-border)]"
               >
                 <h3 className="text-xl font-bold mb-1 text-[var(--color-primary)]">{pkg.nome}</h3>
                 <p className="text-md font-semibold mb-2 text-[var(--color-text-main)]">{pkg.preco}</p>

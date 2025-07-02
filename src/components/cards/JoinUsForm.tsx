@@ -32,7 +32,7 @@ export default function JoinUsForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-7   bg-[var(--color-card)] dark:bg-white/10 text-[var(--color-foreground)] p-6 rounded-lg shadow-xl"
+      className="space-y-7   bg-[var(--color-card)] dark:bg-white/10 text-[var(--color-foreground)] p-6 rounded-3xl shadow-2xl"
     >
       <div>
         <label htmlFor="nome" className="block font-semibold mb-1">
@@ -59,7 +59,7 @@ export default function JoinUsForm() {
           name="email"
           type="email"
           required
-          className="input-field w-full"
+          className="input-field w-full p-2"
           placeholder="seu@email.com"
           value={form.email}
           onChange={handleChange}
@@ -74,7 +74,7 @@ export default function JoinUsForm() {
           id="interesse"
           name="interesse"
           type="text"
-          className="input-field w-full"
+          className="input-field w-full p-2"
           placeholder="Estágio, voluntariado, parceria..."
           value={form.interesse}
           onChange={handleChange}
@@ -88,7 +88,7 @@ export default function JoinUsForm() {
         <textarea
           id="mensagem"
           name="mensagem"
-          className="input-field w-full"
+          className="input-field w-full p-2"
           rows={4}
           placeholder="Conte-nos mais sobre você..."
           value={form.mensagem}

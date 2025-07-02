@@ -10,7 +10,7 @@ const oportunidades = [
 // Componente auxiliar (interno) para uma oportunidade
 function OportunidadeItem({ titulo, status }: { titulo: string; status: string }) {
   return (
-    <li className="flex items-center justify-between bg-[var(--color-background)] dark:bg-[var(--color-card)] p-4 rounded shadow-sm border border-[var(--color-border)]">
+    <li className="flex items-center justify-between bg-background dark:bg-[var(--color-card)] p-4 rounded-2xl shadow-sm border border-[var(--color-border)]">
       <span className="font-medium text-[var(--color-text-main)]">{titulo}</span>
       <span
         className="badge badge-success text-sm"
@@ -44,9 +44,9 @@ export default function JunteSe() {
             ))}
           </ul>
         </section>
-
-        <section aria-label="Formulário de candidatura" className="bg-white dark:bg-[var(--color-card)] p-6 rounded shadow">
-          <h2 className="text-xl font-semibold mb-4 text-[var(--color-primary)]">Candidatar-se</h2>
+        <div className=" p-5"></div>
+        <section aria-label="Formulário de candidatura" className="bg-white dark:bg-[var(--color-card)] p-7 rounded-4xl shadow-sm">
+          <h2 className="text-xl font-semibold mb-4 text-[var(--color-primary)] ">Candidatar-se</h2>
           <JoinUsForm />
         </section>
       </main>
