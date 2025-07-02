@@ -18,12 +18,12 @@ export function Header() {
   ];
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:py-6 md:px-6">
+    <header className="bg-[var(--background)] text-[var(--color-primary)] dark:bg-[var(--color-primary)] dark:text-[var(--color-primary-foreground)] w-full transition-colors duration-300">
+      <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:py-6 md:px-6">
         <div className="flex items-center">
           <a
             href="/"
-            className="text-xl md:text-2xl font-bold tracking-tight text-blue-700 dark:text-indigo-900 transition hover:opacity-80"
+            className="text-xl md:text-2xl font-bold tracking-tight text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)] transition hover:opacity-80"
           >
             Ninteku
           </a>
@@ -34,7 +34,7 @@ export function Header() {
             <a
               key={link.label}
               href={link.href}
-              className="transition hover:text-blue-600 text-gray-700 dark:text-gray-300"
+              className="transition hover:underline text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-highlight)]"
             >
               {link.label}
             </a>
@@ -50,7 +50,7 @@ export function Header() {
             aria-label="Alternar modo escuro"
             className="p-2 rounded"
           >
-            {dark ? <Sun size={22} /> : <Moon size={22} />}
+            {dark ? <Sun size={22} color="var(--color-primary-foreground)" /> : <Moon size={22} color="var(--color-primary)" />}
           </button>
         </div>
 
@@ -58,9 +58,9 @@ export function Header() {
           <button
             onClick={toggle}
             aria-label="Alternar modo escuro"
-            className="p-2 rounded text-white"
+            className="p-2 rounded"
           >
-            {dark ? <Sun size={24} /> : <Moon size={24} />}
+            {dark ? <Sun size={24} color="var(--color-primary-foreground)" /> : <Moon size={24} color="var(--color-primary)" />}
           </button>
           <button
             onClick={() => setIsMobileOpen((v) => !v)}
@@ -73,9 +73,9 @@ export function Header() {
       </div>
 
       {isMobileOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-6 py-6">
+        <div className="md:hidden fixed inset-0 z-40 bg-[var(--background)] text-[var(--color-primary)] dark:bg-[var(--color-primary)] dark:text-[var(--color-primary-foreground)] px-6 py-6 transition-colors duration-300">
           <div className="flex items-center justify-between mb-6">
-            <span className="uppercase font-bold tracking-wider text-blue-700 dark:text-blue-400">
+            <span className="uppercase font-bold tracking-wider text-[var(--color-primary)] dark:text-[var(--color-primary-foreground)]">
               Ninteku
             </span>
             <button onClick={() => setIsMobileOpen(false)} aria-label="Fechar menu">
@@ -87,7 +87,7 @@ export function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                className="hover:text-blue-600"
+                className="hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--color-highlight)]"
                 onClick={() => setIsMobileOpen(false)}
               >
                 {link.label}
@@ -100,8 +100,8 @@ export function Header() {
               aria-label="Alternar modo escuro"
               className={`p-2 rounded transition ${
                 dark
-                  ? "bg-blue-700 text-white hover:bg-blue-800"
-                  : "bg-gray-200 text-blue-700 hover:bg-blue-100"
+                  ? "bg-[var(--background)] text-[var(--color-primary)] hover:bg-[var(--color-primary-foreground)]"
+                  : "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary)]/90"
               }`}
             >
               {dark
