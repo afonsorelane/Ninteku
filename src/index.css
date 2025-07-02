@@ -1,49 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Custom variant para dark mode no Tailwind */
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
+/* === Design Tokens === */
+/* Cores principais */
 :root {
-  /* === Ninteku Design Tokens === */
-  /* Cores principais */
+  /* Cores primárias */
   --color-primary: #1B3B6F;           /* Azul Profundo */
   --color-highlight: #D9744A;         /* Terracota */
   --color-background: #F0E5D8;        /* Bege Claro */
@@ -56,18 +20,19 @@
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Open Sans', sans-serif;
 
-  /* Espaçamentos */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 40px;
+  /* Espaçamentos - unidades relativas para responsividade */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2.5rem;   /* 40px */
 
   /* Bordas e radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 24px;
+  --radius-sm: 0.5rem;  /* 8px */
+  --radius-md: 0.75rem; /* 12px */
+  --radius-lg: 1.5rem;  /* 24px */
 
+  /* Tokens base para cores do tema claro usando OKLCH */
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -101,6 +66,7 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
+/* Dark mode tokens - ativados pela classe `.dark` */
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -135,36 +101,42 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+/* Suporte para preferências de tema do usuário */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: oklch(0.129 0.042 264.695);
+    --foreground: oklch(0.984 0.003 247.858);
+    /* Repita os tokens dark aqui para fallback automático */
+  }
+}
+
+/* Base layer com Tailwind @apply para estilos globais */
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    background-color: var(--color-background, #F0E5D8);
+    color: var(--color-text-main, #1A1A1A);
+  }
+  h1, h2, h3, h4, h5, h6, button, .btn {
+    font-family: var(--font-heading);
   }
 }
 
-/* Exemplo de uso para body e headings */
-body {
-  font-family: var(--font-body);
-  background: var(--color-background);
-  color: var(--color-text-main);
-}
-
-h1, h2, h3, h4, h5, h6, button, .btn {
-  font-family: var(--font-heading);
-}
-
-/* Botão primário */
+/* Botão primário estilizado */
 .btn-primary {
-  background: var(--color-primary);
+  background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
-  padding: 8px;
+  padding: 0.5rem; /* 8px */
   border-radius: var(--radius-sm);
   font-weight: 600;
   text-transform: uppercase;
-  transition: box-shadow 0.2s, transform 0.1s, background 0.2s;
+  transition: box-shadow 0.2s, transform 0.1s, background-color 0.2s;
+  cursor: pointer;
 }
 .btn-primary:hover {
   box-shadow: 0 2px 8px #1B3B6F22;
@@ -172,7 +144,7 @@ h1, h2, h3, h4, h5, h6, button, .btn {
 }
 .btn-primary:active {
   transform: scale(0.95);
-  background: #162e54;
+  background-color: #162e54;
 }
 .btn-primary:focus {
   outline: 2px solid var(--color-primary);
@@ -181,57 +153,47 @@ h1, h2, h3, h4, h5, h6, button, .btn {
 
 /* Card */
 .card {
-  background: var(--color-background);
+  background-color: var(--color-background);
   border-radius: var(--radius-md);
-  box-shadow: 0 2px 8px #0001;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   padding: var(--space-lg);
 }
 
-/* Badge exemplos */
-/* 
-  .badge-success   → Ativo (Verde Musgo)
-  .badge-progress  → Em progresso (Terracota)
-  .badge-new       → Novo (Azul Profundo)
-  Todas: texto branco, radius 8px, padding horizontal 8px, fonte 14px/600
-*/
-.badge-success {
-  background: var(--color-success);      /* Verde Musgo */
-  color: var(--color-white);
-  border-radius: var(--radius-sm);
-  padding: 0 var(--space-sm);
-  font-size: 0.875rem;                   /* 14px */
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.6;
-  display: inline-block;
-}
-.badge-progress {
-  background: var(--color-highlight);    /* Terracota */
-  color: var(--color-white);
-  border-radius: var(--radius-sm);
-  padding: 0 var(--space-sm);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.6;
-  display: inline-block;
-}
+/* Badges com estilos consistentes e acessibilidade */
+.badge-success,
+.badge-progress,
 .badge-new {
-  background: var(--color-primary);      /* Azul Profundo */
-  color: var(--color-white);
   border-radius: var(--radius-sm);
   padding: 0 var(--space-sm);
-  font-size: 0.875rem;
+  font-size: 0.875rem; /* 14px */
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.6;
   display: inline-block;
+  color: var(--color-white);
+  cursor: default;
+  user-select: none;
+  transition: outline 0.2s;
 }
 
-/* Acessibilidade extra: garantir contraste e foco visível */
+/* Badges cores específicas */
+.badge-success {
+  background-color: var(--color-success);      /* Verde Musgo */
+}
+.badge-progress {
+  background-color: var(--color-highlight);    /* Terracota */
+}
+.badge-new {
+  background-color: var(--color-primary);      /* Azul Profundo */
+}
+
+/* Foco visível para badges */
 .badge-success:focus,
 .badge-progress:focus,
 .badge-new:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+  outline-style: solid;
 }
+
+/* Acessibilidade extra: garantir foco visível e contraste em todos os estados */
