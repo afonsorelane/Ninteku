@@ -26,7 +26,7 @@ export const ServicePackages = () => {
   return (
     <section className="mb-12">
       <h2 className="text-xl font-bold mb-4 text-[var(--color-primary)]">Pacotes para Empresas</h2>
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-7">
         {packages.map((pkg, i) => (
           <motion.div
             key={pkg.nome}
